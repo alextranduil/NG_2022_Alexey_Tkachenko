@@ -1,21 +1,21 @@
-list = str(input("Enter numbers: "))
-list1 = list.split(", ")
+our_list = str(input("Enter numbers: "))
+split_our_list = our_list.split(", ")
+list_of_numbers = list(map(float, split_our_list))
 index1 = 1
 index0 = 0
-max= int(list1[0])
-min= int(list1[0])
+max = list_of_numbers[0]
+min = list_of_numbers[0]
 SumOfElementsExceptOfMinAndMax = 0 
-#while index1 < int(list1[-1]):
-#for index1 in list1:
-if int(list1[index1]) > max:
-    max = list1[index1]
-elif int(list1[index1]) < min:
-    min = list1[index1]
-index1= index1+1
-if int(list1[index0]) != max and int(list1[index0]) != min:
-    SumOfElementsExceptOfMinAndMax = SumOfElementsExceptOfMinAndMax + int(list1[index0])
-index0 = index0+1
-print ("max: " +str(max))
-print ("min: " +str(min))
+for index1 in range(0,len(list_of_numbers)):
+    if list_of_numbers[index1] > max:
+        max = list_of_numbers[index1]
+    elif list_of_numbers[index1] < min:
+        min = list_of_numbers[index1]
+    index1 = index1 + 1
+for index0 in range(0,len(list_of_numbers)):
+    if list_of_numbers[index0] != max and list_of_numbers[index0] != min:
+        SumOfElementsExceptOfMinAndMax = SumOfElementsExceptOfMinAndMax + list_of_numbers[index0]
+    index0 = index0 + 1
+print ("Maximum: " +str(max))
+print ("Minimum: " +str(min))
 print ("Sum of elements except of maximum and minimum: " + str(SumOfElementsExceptOfMinAndMax))
-print (list1)
