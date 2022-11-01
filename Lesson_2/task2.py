@@ -1,10 +1,5 @@
-list = str(input("Enter list separated by commas: "))
-print (list.split(","))
-list1 = list.split(",")
-i = 1
-#while i < len(list1):
-for element in list1:
-    if element[i] == element[0]:
-        list1.pop(i)
-        i = i+1
-print (list1)
+our_list = str(input("Enter list separated by commas: "))
+print ("Our list: " + str(our_list.split(", ")))
+list1 = our_list.split(", ")
+result = list(set(list1))
+print ("Our no repeat list: " + str(result))
