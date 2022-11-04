@@ -1,5 +1,5 @@
 our_list = str(input("Enter list separated by commas: "))
 print ("Our list: " + str(our_list.split(", ")))
 list1 = our_list.split(", ")
-result = list(set(list1))
+result = set(list1)
 print ("Our no repeat list: " + str(result))

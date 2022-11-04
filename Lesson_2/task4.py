@@ -6,4 +6,4 @@ while number < theLargestNumber:
     number = number + 1
     lineOfNumbers.add(number)
     Factorial = Factorial *number
-print ("Factorial: " +str(Factorial))
+print ("Factorial: " + str(Factorial))
