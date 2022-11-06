@@ -1,5 +1,5 @@
 our_list = str(input("Enter numbers: "))
-split_our_list = our_list.split(", ")
+split_our_list = our_list.split(",")
 list_of_numbers = list(map(float, split_our_list))
 list_of_numbers.sort()
 print ("Maximum: " + str(list_of_numbers[-1]))
