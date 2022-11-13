@@ -1,24 +1,20 @@
-def askForFirstNumber():
-    number1 = float(input("Enter first number: "))
-    return number1
-
-def askForSecondNumber():
-    number2 = float(input("Enter second number: "))
-    return number2
-
+def askForNumbers():
+    number = float(input("Enter number: "))
+    return number
+    
 def askForOperating():
     operation = input("Enter one of operations (+, -, *, /): ")
     return operation
 
 def operation(action):
     if action == "+":
-        return sum(askForFirstNumber(), askForSecondNumber())
+        return sum(askForNumbers(), askForNumbers())
     if action == "-":
-        return subtraction(askForFirstNumber(), askForSecondNumber())
+        return subtraction(askForNumbers(), askForNumbers())
     if action == "*":
-        return multiplication(askForFirstNumber(), askForSecondNumber())
+        return multiplication(askForNumbers(), askForNumbers())
     if action == "/":
-        return division(askForFirstNumber(), askForSecondNumber())
+        return division(askForNumbers(), askForNumbers())
 
 def sum(number1, number2):
     return  number1 + number2
