@@ -52,23 +52,24 @@ def startProgram(string):
     showMenu()
     string_1 = string
     while True:
-        choice = input("What whould you like to do with your text? ")
-        if choice == '0':
-            print(sortString(string_1))
-        if choice == '1':
-            print(countEachElementInString(string_1))
-        if choice == '2':
-            print(outputOnlyVowelsOrConsonants(string_1))
-        if choice == '3':
-            print(reversedString(string_1))
-        if choice == '4':
-            print(wordsByNumbers(string_1))
-        if choice == '5':
-            string_1 = input("Enter new string: ")
-        if choice == '6':
-            break
-        if int(choice) > 6:
-            print("Number out of range. Please, choose another one")
+        choice = int(input("What whould you like to do with your text? "))
+        match choice:
+            case 0:
+                print(sortString(string_1))
+            case 1:
+                print(countEachElementInString(string_1))
+            case 2:
+                print(outputOnlyVowelsOrConsonants(string_1))
+            case 3:
+                print(reversedString(string_1))
+            case 4:
+                print(wordsByNumbers(string_1))
+            case 5:
+                string_1 = input("Enter new string: ")
+            case 6:
+                break
+            case _:
+                print("Number out of range. Please, choose another one")
     return string_1
 
 string = input("Enter string: ")
