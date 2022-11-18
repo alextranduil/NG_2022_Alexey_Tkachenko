@@ -1,5 +1,5 @@
-def askForNumbers(text):
-    number = float(input(text)) #"Enter number: "))
+def askForNumbers():
+    number = float(input("Enter number: "))
     return number
     
 def askForOperating():
