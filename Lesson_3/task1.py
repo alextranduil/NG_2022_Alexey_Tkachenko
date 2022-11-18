@@ -1,5 +1,5 @@
-def askForNumbers():
-    number = float(input("Enter number: "))
+def askForNumbers(text):
+    number = float(input(text)) #"Enter number: "))
     return number
     
 def askForOperating():
@@ -7,14 +7,15 @@ def askForOperating():
     return operation
 
 def operation(action):
-    if action == "+":
-        return sum(askForNumbers(), askForNumbers())
-    if action == "-":
-        return subtraction(askForNumbers(), askForNumbers())
-    if action == "*":
-        return multiplication(askForNumbers(), askForNumbers())
-    if action == "/":
-        return division(askForNumbers(), askForNumbers())
+    match action:
+        case "+":
+            return sum(askForNumbers(), askForNumbers())
+        case "-":
+            return subtraction(askForNumbers(), askForNumbers())
+        case "*":
+            return multiplication(askForNumbers(), askForNumbers())
+        case "/":
+            return division(askForNumbers(), askForNumbers())
 
 def sum(number1, number2):
     return  number1 + number2
