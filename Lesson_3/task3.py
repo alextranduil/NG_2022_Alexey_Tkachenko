@@ -1,9 +1,6 @@
 def countEachElementInString(index):
     element = string[index]
     result[element] = string.count(element)
-    indexing(index)
-
-def indexing(index):
     if index < len(string)-1:
         index = index + 1
         countEachElementInString(index)
