@@ -35,19 +35,10 @@ def VisaOrMasterCard(listOfCardNumberElements):
         case 4:
             Visa(listOfCardNumberElements)
         case 5:
-            match listOfCardNumberElements[1]:
-                case 1:
-                    print("MASTERCARD")
-                case 2:
-                    print("MASTERCARD")
-                case 3:
-                    print("MASTERCARD") 
-                case 4:
-                    print("MASTERCARD")   
-                case 5:
-                    print("MASTERCARD")
-                case _:
-                    print("INVALID")
+            if listOfCardNumberElements[1] > 0 and listOfCardNumberElements[1] < 6:
+                print("MASTERCARD")
+            else:
+                print("INVALID")
         case _:
             print("INVALID")
 
