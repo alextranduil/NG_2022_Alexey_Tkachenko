@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+    </head>
+    <body>
+        <p>Enter first number:</p>
+        <input id="input1"/>
+        <p>Enter second number:</p>
+        <input id="input2"/>
+        <p>Choose the action and then click on "=":</p>
+        <button onclick="action='+'">+</button>
+        <button onclick="action='-'">-</button>
+        <button onclick="action='*'">x</button>
+        <button onclick="action='/'">:</button>
+        <button onclick="choice()">=</button>
+        <p>Result:</p>
+        <p id="result"></p>
+        <p>Your operation:</p>
+        <textarea id="history" rows="1" cols="20"></textarea>
+        <script>
+          var action;
+          function choice() 
+          {
+            var result;
+            var number1 = Number(document.getElementById("input1").value);
+            var number2 = Number(document.getElementById("input2").value);
+            switch (action) 
+            {
+              case "+":
+                result = number1 + number2;
+                break;
+              case "-":
+                result = number1 - number2;
+                break;
+              case "*":
+                result = number1 * number2;
+                break;
+              case "/":
+                if (number2!=0) 
+                {
+                  result = number1 / number2;
+                } 
+                else 
+                {
+                  result = "Error";
+                }
+                break;
+              default:
+                result = "Choose action";
+            }
+            document.getElementById("result").innerHTML = result;
+            document.getElementById("history").innerHTML = number1 + action + number2 + "=" + result;
+          }
+        </script>
+    </body>
+</html>
