@@ -1,13 +1,11 @@
-def countEachElementInString(index):
-    element = string[index]
-    result[element] = string.count(element)
-    if index < len(string)-1:
-        index = index + 1
-        countEachElementInString(index)
-    else:
-        print(result)
+def countEachElementInString(index, result, string):
+    if index < len(string):
+        element = string[index]
+        result[element] = string.count(element)
+        return countEachElementInString(index + 1, result, string)
+    return result
 
 index = 0
 result = {}
 string = input("Enter string: ")
-countEachElementInString(index)
+print(countEachElementInString(index, result, string))
