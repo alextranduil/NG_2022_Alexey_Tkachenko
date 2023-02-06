@@ -4,7 +4,7 @@ import requests
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import smtplib
-from settings import settings
+from settings import settings # file with dictionary where lies my personal information (for example: telegram_token, my_id, email_password)
 
 def send_telegram(text: str):
     token = settings["token_telegram"] # token of your telegram bot
