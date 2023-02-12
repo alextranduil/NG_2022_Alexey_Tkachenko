@@ -44,7 +44,7 @@ async def on_message(our_message):
     for content in our_message.content.split(" "):
         for word in key_words:
             if content.lower() == word:
-                text = str(f"{our_message.author}, mentioned your in {our_message.channel}")
+                text = str(f"{our_message.author}, mentioned your on server: {our_message.guild.name}, in channel: {our_message.channel}\n{our_message.author}'s status: {our_message.author.status}\nMessage:\n {our_message.content}\nTime: {our_message.created_at}")
                 send_telegram(text)
 
 bot.run(settings["token_discord"]) # token of your discord bot
