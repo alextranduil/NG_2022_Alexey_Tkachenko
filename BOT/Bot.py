@@ -6,6 +6,37 @@ from email.mime.text import MIMEText
 import smtplib
 from settings import settings # file with dictionary where lies my personal information (for example: telegram_token, my_id, email_password)
 
+def selection_setting(our_message): # function of choice
+    options = ["Author", "Server", "Channel", "Author's status", "Message", "Time", "All"]
+    text = "You are mentioned "
+
+    for index in range(len(options)):
+        print (str(index) + ": " + str(options[index]))
+
+    user_choice = str(input("Enter with a space what you want to receive: "))
+    splited_choice = user_choice.split(" ")
+
+    for choice in splited_choice:
+        for index in range(len(options)):
+            if str(index) == choice:
+                match index:
+                    case 0:
+                        text = text + str(f"by {our_message.author} ")
+                    case 1:
+                        text = text + str(f"on server: {our_message.guild.name}, ")
+                    case 2:
+                        text = text + str(f"in channel: {our_message.channel}\n")
+                    case 3: 
+                        text = text + str(f"{our_message.author}'s status: {our_message.author.status}\n")
+                    case 4:
+                        text = text + str(f"Message:\n {our_message.content}\n")
+                    case 5:
+                        text = text + str(f"Time: {our_message.created_at}")
+                    case 6:
+                        text = text + str(f"by {our_message.author} on server: {our_message.guild.name}, in channel: {our_message.channel}\n{our_message.author}'s status: {our_message.author.status}\nMessage:\n {our_message.content}\nTime: {our_message.created_at}")
+
+    send_telegram(text)
+
 def send_telegram(text: str):
     token = settings["token_telegram"] # token of your telegram bot
     url = "https://api.telegram.org/bot"
@@ -44,7 +75,6 @@ async def on_message(our_message):
     for content in our_message.content.split(" "):
         for word in key_words:
             if content.lower() == word:
-                text = str(f"{our_message.author}, mentioned your on server: {our_message.guild.name}, in channel: {our_message.channel}\n{our_message.author}'s status: {our_message.author.status}\nMessage:\n {our_message.content}\nTime: {our_message.created_at}")
-                send_telegram(text)
+                selection_setting(our_message)
 
 bot.run(settings["token_discord"]) # token of your discord bot
